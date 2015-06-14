@@ -1,8 +1,8 @@
 
-" uber tips
-"
-" copy to X11 clipboard (`+` register) ->  "+y
-" paste from X11 clipboard             ->  "+p
+" seemed to need this for vim within my precise32 vagrant box
+" otherwise utf stuff in this .vimrc (`listchars`) would fail
+set encoding=utf-8
+set fileencoding=utf-8
 
 " to keep karma happy
 set backupcopy=yes
@@ -122,11 +122,9 @@ endfunction
 " markdown for `.md` file extensions
 au BufRead,BufNewFile *.md set filetype=markdown
 
-
 " The Silver Searcher
 " https://robots.thoughtbot.com/faster-grepping-in-vim
-" -------------------
-
+" ----------------------------------------------------
 if executable('ag')
   " Use ag over grep
   set grepprg=ag\ --nogroup\ --nocolor
@@ -142,6 +140,8 @@ endif
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 " bind \ (backward slash) to grep shortcut
-command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+command! -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
 nnoremap \ :Ag<SPACE>
 
+" bind <leader>q to close the quickfix menu
+map <leader>q :cclose<CR>
