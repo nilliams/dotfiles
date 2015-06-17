@@ -123,5 +123,8 @@ export PATH="$HOME/.tmuxifier/bin:$PATH"
 # What is my public ip
 alias ipecho='curl ipecho.net/plain; echo'
 
+# What is my local ip
+alias ip?='hostname -I'
+
 # Coloured `cat`
 alias ccat='pygmentize -g'
