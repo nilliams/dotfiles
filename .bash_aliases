@@ -108,7 +108,9 @@ grepvim() {
 PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
 
 # Only load Liquid Prompt in interactive shells, not from a script or from scp
-[[ $- = *i* ]] && source ~/liquidprompt/liquidprompt
+if [ -e ~/liquidprompt/liquidprompt ]; then
+    [[ $- = *i* ]] && source ~/liquidprompt/liquidprompt
+fi
 
 # SVN aliases
 alias svnaddall='svn add --force * --auto-props --parents --depth infinity -q'
