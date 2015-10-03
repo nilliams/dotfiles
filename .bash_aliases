@@ -28,21 +28,6 @@ else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
 
-# TODO: Delete these
-DEFAULT="[37;0m"
-PINK="[35;40m"
-GREEN="[32;40m"
-ORANGE="[33;40m"
-
-Black="[0;30m"        # Black
-Red="[0;31m"          # Red
-Green='[0;32m'        # Green
-Yellow='[0;33m'       # Yellow
-Blue='[1;34m'         # Blue
-Purple='[0;35m'       # Purple
-Cyan='[0;36m'         # Cyan
-White='[0;37m'        # White
-
 # TODO: Needed?
 unset color_prompt force_color_prompt
 
@@ -107,11 +92,6 @@ grepvim() {
 # http://stackoverflow.com/questions/10517128/change-gnome-terminal-title-to-reflect-the-current-directory
 PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
 
-# Only load Liquid Prompt in interactive shells, not from a script or from scp
-if [ -e ~/liquidprompt/liquidprompt ]; then
-    [[ $- = *i* ]] && source ~/liquidprompt/liquidprompt
-fi
-
 # SVN aliases
 alias svnaddall='svn add --force * --auto-props --parents --depth infinity -q'
 
@@ -130,3 +110,31 @@ alias ip?='hostname -I'
 
 # Coloured `cat`
 alias ccat='pygmentize -g'
+
+# Prompt/PS1
+# ----------
+# The 'blog post' version of hg prompt, minus hg_dirty() which doesn't seem to work
+# see: http://stevelosh.com/blog/2009/03/mercurial-bash-prompts/
+DEFAULT="[37;40m"
+PINK="[35;40m"
+GREEN="[32;40m"
+ORANGE="[33;40m"
+
+hg_branch() {
+    hg branch 2> /dev/null | \
+        awk '{ printf "\033[37;0m on \033[35;40m" $1 }'
+    hg bookmarks 2> /dev/null | \
+        awk '/\*/ { printf "\033[37;0m at \033[33;40m" $2 }'
+}
+
+# Prefer liquid prompt if 'available', fall back to hg-prompt
+# Only load Liquid Prompt in interactive shells, not from a script or from scp
+if [ -e ~/liquidprompt/liquidprompt ]; then
+    [[ $- = *i* ]] && source ~/liquidprompt/liquidprompt
+else
+    export PS1='\n\e${PINK}\u \
+    \e${DEFAULT}at \e${ORANGE}\h \
+    \e${DEFAULT}in \e${GREEN}\w\
+    $(hg_branch)\e\
+    \e${DEFAULT}\n$ '
+fi
