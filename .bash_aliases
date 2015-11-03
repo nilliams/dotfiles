@@ -28,21 +28,6 @@ else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
 
-# TODO: Delete these
-DEFAULT="[37;0m"
-PINK="[35;40m"
-GREEN="[32;40m"
-ORANGE="[33;40m"
-
-Black="[0;30m"        # Black
-Red="[0;31m"          # Red
-Green='[0;32m'        # Green
-Yellow='[0;33m'       # Yellow
-Blue='[1;34m'         # Blue
-Purple='[0;35m'       # Purple
-Cyan='[0;36m'         # Cyan
-White='[0;37m'        # White
-
 # TODO: Needed?
 unset color_prompt force_color_prompt
 
@@ -128,3 +113,8 @@ alias ip?='hostname -I'
 
 # Coloured `cat`
 alias ccat='pygmentize -g'
+
+# Git
+# ---
+# show current tag
+alias gittag='git name-rev --tags --name-only $(git rev-parse HEAD)'
