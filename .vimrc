@@ -7,11 +7,12 @@ set fileencoding=utf-8
 " to keep karma happy
 set backupcopy=yes
 
+" nerdcommenter settings
+let g:NERDCustomDelimiters = {'scss': { 'left': '//' }}
+
 execute pathogen#infect()
 let g:syntastic_python_checkers = ['pyflakes', 'flake8']
 let g:syntastic_javascript_checkers = ['jshint', 'jscs']
-" let g:syntastic_javascript_checkers = ['jshint']
-" let g:syntastic_python_checkers = ['pyflakes', 'flake8']
 syntax on
 
 " count hyphenated words as words
