@@ -146,3 +146,6 @@ nnoremap \ :Ag<SPACE>
 
 " bind <leader>q to close the quickfix menu
 map <leader>q :cclose<CR>
+
+" open quickfix selections in a new tab
+set switchbuf+=usetab,newtab
