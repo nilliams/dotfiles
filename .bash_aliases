@@ -134,3 +134,10 @@ if [ -e ~/liquidprompt/liquidprompt ]; then
 else
     export PS1='\n\e${PINK}\u \e${DEFAULT}at \e${ORANGE}\h \e${DEFAULT}in \e${GREEN}\w$(hg_branch)\e \e${DEFAULT}\n$ '
 fi
+
+# Vim Python ctags
+# sudo apt-get install exuberant-ctags
+# https://www.fusionbox.com/blog/detail/navigating-your-django-project-with-vim-and-ctags/590/
+function retag() {
+    ctags -R --fields=+l --languages=python --python-kinds=-iv -f ./tags $(python -c "import os, sys; print(' '.join('{}'.format(d) for d in sys.path if os.path.isdir(d)))")
+}
