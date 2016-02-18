@@ -141,3 +141,6 @@ fi
 function retag() {
     ctags -R --fields=+l --languages=python --python-kinds=-iv -f ./tags $(python -c "import os, sys; print(' '.join('{}'.format(d) for d in sys.path if os.path.isdir(d)))")
 }
+
+# Tox - run on change -- uses envs from opposite ends of spectrum.
+alias toxw='find . -name "*.py" ! -path "./.tox/*" | entr tox -e py27-dj16-sqlite,py34-dj19-mysql'
