@@ -7,11 +7,12 @@ set fileencoding=utf-8
 " to keep karma happy
 set backupcopy=yes
 
+" nerdcommenter settings
+let g:NERDCustomDelimiters = {'scss': { 'left': '//' }}
+
 execute pathogen#infect()
 let g:syntastic_python_checkers = ['pyflakes', 'flake8']
 let g:syntastic_javascript_checkers = ['jshint', 'jscs']
-" let g:syntastic_javascript_checkers = ['jshint']
-" let g:syntastic_python_checkers = ['pyflakes', 'flake8']
 syntax on
 
 " count hyphenated words as words
@@ -59,6 +60,9 @@ inoremap <silent> <C-S>         <C-O>:update<CR
 
 " Use the same symbols as TextMate for tabstops and EOLs
 set listchars=tab:▸\ ,eol:¬
+
+" Insert a linebreak (with Ctrl-J) without leaving normal mode
+:nnoremap <NL> i<CR><ESC>
 
 " jk and kj to escape
 " :imap jk <Esc>
@@ -145,3 +149,6 @@ nnoremap \ :Ag<SPACE>
 
 " bind <leader>q to close the quickfix menu
 map <leader>q :cclose<CR>
+
+" open quickfix selections in a new tab
+set switchbuf+=usetab,newtab
