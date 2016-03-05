@@ -18,6 +18,20 @@ syntax on
 " count hyphenated words as words
 set iskeyword+=-
 
+" Emacs-like beginning and end of line.
+imap <c-e> <c-o>$
+imap <c-a> <c-o>^
+
+command! Q q " Bind :Q to :q
+command! Qall qall
+command! QA qall
+command! E e
+command! W w
+command! Wq wq
+
+" Same deal with X - don't ask me for encryption key, do same as `x`
+cnoreabbrev X x
+
 " ctrl p - disable 'working path mode' so can always find
 " files relative to the (root) dir you launched vim from/cd'd to
 let g:ctrlp_working_path_mode = 0
