@@ -149,3 +149,9 @@ function retag() {
 
 # Tox - run on change -- uses envs from opposite ends of spectrum.
 alias toxw='find . -name "*.py" ! -path "./.tox/*" | entr tox -e py27-dj16-sqlite,py34-dj19-mysql'
+
+# Elapsed time of a process (how long it's been running for).
+# Pass the pid as an argument, e.g. `elapsed 1415`.
+function elapsed() {
+    ps -p "$1" -o etime=
+}
