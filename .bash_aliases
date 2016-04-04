@@ -137,7 +137,7 @@ hg_branch() {
 if [ -e ~/liquidprompt/liquidprompt ]; then
     [[ $- = *i* ]] && source ~/liquidprompt/liquidprompt
 else
-    export PS1='\n\e${PINK}\u \e${DEFAULT}@ \e${ORANGE}\h \e${DEFAULT}in \e${GREEN}\w$(hg_branch)\e \e${DEFAULT}\n$ '
+    export PS1='\n\e${PINK}\u\e${DEFAULT} @ \e${ORANGE}\h \e${DEFAULT}in \e${GREEN}\w$(hg_branch)\e \e${DEFAULT}\n$ '
 fi
 
 # Vim Python ctags
@@ -155,3 +155,7 @@ alias toxw='find . -name "*.py" ! -path "./.tox/*" | entr tox -e py27-dj16-sqlit
 function elapsed() {
     ps -p "$1" -o etime=
 }
+
+# pip install reqs
+alias pir='pip install -r'
+alias pil='pip install -r requirements/local.txt'
