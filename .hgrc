@@ -1,0 +1,36 @@
+[ui]
+username = nickwilliams <nick@hiveonline.co.uk>
+verbose = True
+merge = meld
+
+[extensions]
+color = 
+hgext.churn=
+purge =
+record = 
+mq =
+convert =
+pager =
+transplant =
+rebase =
+flow = ~/.hg/hgflow.py
+shelve =
+
+[alias]
+
+serve=serve -p 9001
+diff=diff --color=always
+
+[pager]
+
+pager = LESS='FRX' less
+
+[hooks]
+#pretxncommit.nocommit = hg export tip | coolthing
+#pretxncommit.nocommit = which hg
+
+[color]
+
+prompt.bookmark = "red"
+prompt.branch = "magenta"
+prompt.closed = "red"
