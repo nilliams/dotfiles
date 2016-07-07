@@ -1,0 +1,14 @@
+{
+    "extends": "idiomatic",
+    "rules": {
+        "indent": [2, 4],
+        "space-in-parens": [0],
+        "one-var": [2, "never"],
+        "curly": [2, "multi-line"],
+        "array-bracket-spacing": [2, "always", { "objectsInArrays": false, "singleValue": false }],
+        "computed-property-spacing": [0]
+    },
+    "parserOptions": {
+        "sourceType": "module"
+    }
+}
