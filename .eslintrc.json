@@ -6,7 +6,9 @@
         "one-var": [2, "never"],
         "curly": [2, "multi-line"],
         "array-bracket-spacing": [2, "always", { "objectsInArrays": false, "singleValue": false }],
-        "computed-property-spacing": [0]
+        "computed-property-spacing": [0],
+        "semi": [2, "always"],
+        "quotes": [2, "single", { "avoidEscape": true, "allowTemplateLiterals": true }]
     },
     "parserOptions": {
         "sourceType": "module"
