@@ -1,4 +1,7 @@
 
+" fix backspace
+set backspace=indent,eol,start
+
 " seemed to need this for vim within my precise32 vagrant box
 " otherwise utf stuff in this .vimrc (`listchars`) would fail
 set encoding=utf-8
@@ -61,7 +64,8 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 " theme
 set t_Co=256
-colorscheme Tomorrow-Night-Bright
+" colorscheme Tomorrow-Night-Bright
+" color dracula
 
 " theme - because otherwise syntastic error highlighting is unreadable
 hi SpellBad ctermfg=015 ctermbg=160 guifg=#ffffff guibg=#d70000
@@ -161,8 +165,23 @@ nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 command! -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
 nnoremap \ :Ag<SPACE>
 
+" /End The Silver Searcher ---------------------------
+
 " bind <leader>q to close the quickfix menu
 map <leader>q :cclose<CR>
 
 " open quickfix selections in a new tab
 set switchbuf+=usetab,newtab
+
+" Mkdir
+
+function! Mkdir()
+  let dir = expand('%:p:h')
+
+  if !isdirectory(dir)
+    call mkdir(dir, "p")
+    echo "created non-existing directory: " . dir
+  endif
+endfunction
+
+autocmd BufWritePre * call Mkdir()
