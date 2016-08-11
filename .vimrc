@@ -1,4 +1,3 @@
-
 " fix backspace
 set backspace=indent,eol,start
 
@@ -165,7 +164,7 @@ nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 command! -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
 nnoremap \ :Ag<SPACE>
 
-" /End The Silver Searcher ---------------------------
+" ---- End The Silver Searcher -----------------------
 
 " bind <leader>q to close the quickfix menu
 map <leader>q :cclose<CR>
@@ -173,8 +172,8 @@ map <leader>q :cclose<CR>
 " open quickfix selections in a new tab
 set switchbuf+=usetab,newtab
 
-" Mkdir
-
+" mkdir - automatically make dirs if don't exist, when saving a file
+" via: https://pbrisbin.com/tags/vim
 function! Mkdir()
   let dir = expand('%:p:h')
 
