@@ -2,10 +2,10 @@
     "extends": "idiomatic",
     "rules": {
         "indent": [2, 4],
-        "space-in-parens": [0],
+        "space-in-parens": [2, "never"],
         "one-var": [2, "never"],
         "curly": [2, "multi-line"],
-        "array-bracket-spacing": [2, "always", { "objectsInArrays": false, "singleValue": false }],
+        "array-bracket-spacing": [2, "never"],
         "computed-property-spacing": [0],
         "semi": [2, "always"],
         "quotes": [2, "single", { "avoidEscape": true, "allowTemplateLiterals": true }]
