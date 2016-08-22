@@ -88,6 +88,11 @@ set listchars=tab:▸\ ,eol:¬
 " leader
 let mapleader=','
 
+" fixmyjs
+let g:fixmyjs_engine = 'eslint'
+let g:fixmyjs_rc_path = "$HOME/.eslintrc.json"
+noremap <Leader><Leader>f :Fixmyjs<CR>
+
 nnoremap <leader>cd :cd %:p:h<CR>
 
 " ,ew - expands to e: /path/to/dir/of/current/file
