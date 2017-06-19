@@ -137,7 +137,7 @@ hg_branch() {
 if [ -e ~/liquidprompt/liquidprompt ]; then
     [[ $- = *i* ]] && source ~/liquidprompt/liquidprompt
 else
-    export PS1='\n\e${PINK}\u\e${DEFAULT} @ \e${ORANGE}\h \e${DEFAULT}in \e${GREEN}\w$(hg_branch)\e \e${DEFAULT}\n$ '
+    export PS1='\n\e${PINK}\u\e${DEFAULT} @ \e${ORANGE}\h \e${DEFAULT}in \e${GREEN}\w$(hg_branch) \e${DEFAULT} \n$ '
 fi
 
 # Vim Python ctags
