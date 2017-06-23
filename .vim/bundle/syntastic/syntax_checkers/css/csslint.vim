@@ -33,7 +33,8 @@ function! SyntaxCheckers_css_csslint_GetLocList() dict
     return SyntasticMake({
         \ 'makeprg': makeprg,
         \ 'errorformat': errorformat,
-        \ 'defaults': {'bufnr': bufnr("")} })
+        \ 'postprocess': ['guards'],
+        \ 'defaults': {'bufnr': bufnr('')} })
 
 endfunction
 
@@ -44,4 +45,4 @@ call g:SyntasticRegistry.CreateAndRegisterChecker({
 let &cpo = s:save_cpo
 unlet s:save_cpo
 
-" vim: set et sts=4 sw=4:
+" vim: set sw=4 sts=4 et fdm=marker:
