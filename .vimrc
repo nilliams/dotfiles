@@ -17,6 +17,11 @@ let g:syntastic_python_checkers = ['pyflakes', 'flake8']
 let g:syntastic_javascript_checkers = ['eslint']
 syntax on
 
+" vim-airline - enable powerline fonts
+let g:airline_powerline_fonts=1
+" always show statusline
+set laststatus=2
+
 " count hyphenated words as words
 set iskeyword+=-
 
